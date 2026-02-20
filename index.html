@@ -1,11 +1,179 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link rel="stylesheet" href="style.css?v=2">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loïc Maugy - Services d’entretien & Aide du quotidien</title>
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loïc Maugy - Services d’entretien & Aide du quotidien</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7f6;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #1abc9c);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1abc9c;
+}
+
+/* CONTACT BUTTON */
+
+.contact-container {
+    position: relative;
+}
+
+.contact-btn {
+    background: #1abc9c;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #16a085;
+}
+
+.dropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    min-width: 220px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 14px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s;
+}
+
+.dropdown a:hover {
+    background: #f1f1f1;
+}
+
+.dropdown.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.why-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.why-list li {
+    margin: 12px 0;
+    font-weight: 600;
+}
+
+.contact-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+    nav{
+        flex-wrap: wrap;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
@@ -17,15 +185,22 @@
     <a href="#services">Services</a>
     <a href="#pourquoi">Pourquoi moi ?</a>
     <a href="#contact">Contact</a>
-    <a class="tel-btn" href="tel:0610166787">📞 Appeler</a>
+
+    <div class="contact-container">
+        <button class="contact-btn" onclick="toggleMenu()">📞 Contact</button>
+        <div class="dropdown" id="contactMenu">
+            <a href="sms:0610166787">📩 Envoyer un SMS</a>
+            <a href="mailto:maugyloic.10@gmail.com">✉️ Envoyer un email</a>
+        </div>
+    </div>
 </nav>
 
 <section id="presentation">
     <h2>Bienvenue</h2>
-    <p>
+    <p style="text-align:center;">
         Je propose des services d’entretien, d’aide au quotidien et d’assistance personnalisée.
-        Travail sérieux et soigné.  
-        Déplacements sur draguignan, flayosc
+        Travail sérieux et soigné.<br>
+        Déplacements sur Draguignan et Flayosc.
     </p>
 </section>
 
@@ -54,18 +229,18 @@
         <ul>
             <li>Débroussaillage</li>
             <li>Taille haies</li>
-            <li>entretien de jardin</li>
+            <li>Entretien de jardin</li>
         </ul>
     </div>
 
     <div class="service-card">
         <h3>🔧 Services personnalisés</h3>
         <ul>
-            <li>Aide au grand rangement / tri</li>
+            <li>Aide au rangement / tri</li>
             <li>Déménagement</li>
-            <li>Bricolage (meubles, constructions…)</li>
+            <li>Bricolage</li>
             <li>Courses d’appoint</li>
-            <li>Aide aux devoirs (école / collège)</li>
+            <li>Aide aux devoirs</li>
         </ul>
     </div>
 </section>
@@ -86,14 +261,26 @@
     <div class="contact-box">
         <p><strong>📞 Téléphone :</strong> 06 10 16 67 87</p>
         <p><strong>📧 Email :</strong> maugyloic.10@gmail.com</p>
-        <a class="contact-btn" href="tel:0610166787">📞 Appeler maintenant</a>
-        <a class="contact-btn" href="mailto:maugyloic.10@gmail.com">✉️ Envoyer un email</a>
     </div>
 </section>
 
 <footer>
     <p>© 2025 - Loïc Maugy • Services d’entretien & Aide du quotidien</p>
 </footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("contactMenu").classList.toggle("show");
+}
+
+document.addEventListener("click", function(event) {
+    const menu = document.getElementById("contactMenu");
+    const button = document.querySelector(".contact-btn");
+    if (!button.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove("show");
+    }
+});
+</script>
 
 </body>
 </html>
