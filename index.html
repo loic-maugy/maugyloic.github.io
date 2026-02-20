@@ -6,7 +6,7 @@
 <title>Loïc Maugy - Services d’entretien & Aide du quotidien</title>
 
 <style>
-
+/* -------------------- GLOBAL -------------------- */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -14,8 +14,19 @@ body {
     color: #333;
 }
 
-/* HEADER */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
 
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* -------------------- HEADER -------------------- */
 header {
     background: linear-gradient(135deg, #2c3e50, #1abc9c);
     color: white;
@@ -28,8 +39,7 @@ header h1 {
     font-size: 2.5em;
 }
 
-/* NAVIGATION */
-
+/* -------------------- NAV -------------------- */
 nav {
     background: white;
     display: flex;
@@ -54,8 +64,7 @@ nav a:hover {
     color: #1abc9c;
 }
 
-/* CONTACT BUTTON */
-
+/* -------------------- CONTACT DROPDOWN -------------------- */
 .contact-container {
     position: relative;
 }
@@ -108,20 +117,7 @@ nav a:hover {
     visibility: visible;
 }
 
-/* SECTIONS */
-
-section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2em;
-}
-
+/* -------------------- SERVICES -------------------- */
 .service-card {
     background: white;
     padding: 25px;
@@ -135,6 +131,7 @@ h2 {
     transform: translateY(-5px);
 }
 
+/* -------------------- POURQUOI -------------------- */
 .why-list {
     list-style: none;
     padding: 0;
@@ -146,6 +143,7 @@ h2 {
     font-weight: 600;
 }
 
+/* -------------------- CONTACT BOX -------------------- */
 .contact-box {
     background: white;
     padding: 30px;
@@ -154,8 +152,11 @@ h2 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-/* FOOTER */
+.contact-box p {
+    margin: 10px 0;
+}
 
+/* -------------------- FOOTER -------------------- */
 footer {
     background: #2c3e50;
     color: white;
@@ -163,14 +164,12 @@ footer {
     padding: 20px;
 }
 
-/* RESPONSIVE */
-
+/* -------------------- RESPONSIVE -------------------- */
 @media(max-width:768px){
     nav{
         flex-wrap: wrap;
     }
 }
-
 </style>
 </head>
 
@@ -184,7 +183,6 @@ footer {
 <nav>
     <a href="#services">Services</a>
     <a href="#pourquoi">Pourquoi moi ?</a>
-    <a href="#contact">Contact</a>
 
     <div class="contact-container">
         <button class="contact-btn" onclick="toggleMenu()">📞 Contact</button>
@@ -257,10 +255,11 @@ footer {
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
+    <h2>Contact & Zones d’intervention</h2>
     <div class="contact-box">
         <p><strong>📞 Téléphone :</strong> 06 10 16 67 87</p>
         <p><strong>📧 Email :</strong> maugyloic.10@gmail.com</p>
+        <p><strong>🏘️ Villes desservies :</strong> Draguignan, Flayosc, Lorgues, Figanières, Les Arcs</p>
     </div>
 </section>
 
@@ -273,6 +272,7 @@ function toggleMenu() {
     document.getElementById("contactMenu").classList.toggle("show");
 }
 
+// Fermer le menu si clic en dehors
 document.addEventListener("click", function(event) {
     const menu = document.getElementById("contactMenu");
     const button = document.querySelector(".contact-btn");
